@@ -1,0 +1,28 @@
+Registation Form
+
+	EmpID
+	Full Name
+	Address
+	Age
+	Birth Day
+	Gender
+	Occupation
+	TelphoneNo
+	Email
+	ID No
+	-if is he manager OR receptionist then
+		username
+		password
+		
+Login
+
+	username
+	password
+	-if foget then had to cantact Manager
+	
+Change Password
+
+	username
+	oldpass
+	newpass
+	confirmpass
