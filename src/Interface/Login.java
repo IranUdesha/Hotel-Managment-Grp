@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hotel.managment;
+package Interface;
 
 
+import hotel.managment.DBConnManager;
 import java.awt.Window;
 import java.awt.event.WindowEvent;
 import java.sql.Connection;
@@ -44,6 +45,9 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txt_user = new javax.swing.JTextField();
@@ -54,41 +58,56 @@ public class Login extends javax.swing.JFrame {
         btn_changepass = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 41));
+        jPanel3.setBackground(new java.awt.Color(16, 21, 30));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(88, 200, 197));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 48)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("LOGIN");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 150, 50));
+
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 230, 310));
+
+        jPanel1.setBackground(new java.awt.Color(23, 31, 44));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 102, 255));
-        jLabel1.setText("Username");
+        jLabel1.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("USERNAME");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
-        txt_user.setBackground(new java.awt.Color(0, 0, 41));
+        txt_user.setBackground(new java.awt.Color(23, 31, 44));
         txt_user.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txt_user.setForeground(new java.awt.Color(255, 255, 255));
         txt_user.setBorder(null);
         jPanel1.add(txt_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 340, -1));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 102, 255));
-        jLabel2.setText("Password");
+        jLabel2.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("PASSWORD");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
 
-        txt_pass.setBackground(new java.awt.Color(0, 0, 41));
+        txt_pass.setBackground(new java.awt.Color(23, 31, 44));
         txt_pass.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txt_pass.setForeground(new java.awt.Color(255, 255, 255));
         txt_pass.setBorder(null);
         jPanel1.add(txt_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 340, -1));
 
-        btn_login.setBackground(new java.awt.Color(102, 102, 255));
+        btn_login.setBackground(new java.awt.Color(88, 200, 197));
+        btn_login.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 14)); // NOI18N
         btn_login.setText("Login");
-        btn_login.setBorder(null);
+        btn_login.setAutoscrolls(true);
+        btn_login.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btn_login.setBorderPainted(false);
         btn_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +116,8 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 121, 39));
 
+        btn_close.setBackground(new java.awt.Color(88, 200, 197));
+        btn_close.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 14)); // NOI18N
         btn_close.setText("Close");
         btn_close.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,21 +126,25 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(btn_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 116, 39));
 
+        btn_changepass.setBackground(new java.awt.Color(88, 200, 197));
+        btn_changepass.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 12)); // NOI18N
         btn_changepass.setText("Change Password");
         btn_changepass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_changepassActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_changepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
+        jPanel1.add(btn_changepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, -1, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 340, 10));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 340, 10));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 500, 330));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-close-window-35.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel4.setText("LOGIN");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 490, 310));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -129,8 +154,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void btn_closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_closeActionPerformed
-       Login f = new Login(); 
-       f.dispatchEvent(new WindowEvent(f, WindowEvent.WINDOW_CLOSING));
+        this.dispose();
     }//GEN-LAST:event_btn_closeActionPerformed
 
     private void btn_changepassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_changepassActionPerformed
@@ -212,8 +236,11 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btn_login;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPasswordField txt_pass;
