@@ -13,7 +13,7 @@ public class DBConnManager {
     public DBConnManager() {         
         try {             
             Class.forName("com.mysql.jdbc.Driver");             
-            sourceURL = "jdbc:mysql://localhost:3306/hotel?";         
+            sourceURL = "jdbc:mysql://localhost:3306/hotel managment?";         
         } 
         catch (ClassNotFoundException classNotFoundException) 
         {             
